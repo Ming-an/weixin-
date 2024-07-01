@@ -1,0 +1,53 @@
+<navigation-bar title="商品详情页"></navigation-bar>
+
+<view class="detail_swiper">
+  <swiper autoplay interval="2000" circular indicator-dots>
+    <swiper-item 
+    wx:for="{{goodsObj.pics}}"
+    wx:key="pics_id"
+    >
+<image mode="widthFix" src="{{item.pics_mid}}"></image>
+    </swiper-item>
+  </swiper>
+</view>
+
+<view class="goods_price">￥{{goodsObj.goods_price}}</view>
+<view class="goods_name_row">
+  <view class="goods_name">{{goodsObj.goods_name}}</view>
+  <view class="goods_collect">
+    <image src="/icon/收藏.png" style="width: 50rpx;height:50rpx;"></image>
+    <view class="collect_text">收藏</view>
+  </view>
+</view>
+
+<view class="goods_info">
+  <view class="goods_info_title">图文详情</view>
+  <view class="goods_info_content">
+    <rich-text nodes="{{goodsObj.goods_introduce}}">
+    </rich-text>
+  </view>
+</view>
+
+<view class="btm_tool">
+<view class="tool_item">
+  <image src="/icon/客服.png" style="width: 45rpx; height:45rpx"></image>
+  <view style="font-size: 20rpx;">联系客服</view>
+  <button open-type="contact"></button>
+</view>
+<view class="tool_item">
+  <image src="/icon/3.1分享.png" style="width: 45rpx; height:45rpx"></image>
+  <view  style="font-size: 20rpx;">分享</view>
+  <button open-type="share"></button>
+</view>
+<navigator open-type="switchTab" class="tool_item" url="/pages/cart/cart">
+  <image src="/icon/实物-购物车.png" 
+  style="width: 45rpx; height:45rpx"></image>
+  <view style="font-size: 20rpx;"
+  url="/pages/cart/cart"
+  >购物车</view>
+</navigator >
+<view class="btn_cart"
+bind:tap="handleCartAdd"
+>加入购物车</view>
+<view class="btn_buy">立即购买</view>
+</view>

@@ -1,0 +1,13 @@
+<!--pages/search/search.wxml-->
+<navigation-bar title="搜索"></navigation-bar>
+<view class="search">
+  <input type="text" class="searchInput" bindinput="getKey"  bindconfirm="getGoodsDetails"/>
+  <text bind:tap="getGoodsDetails">搜索</text>
+</view>
+<view class="goods">
+  <view class="good-item" wx:for="{{goodsGetByKey}}" wx:key="index"  bind:tap="gotoGoodDetail" data-id="{{item.goods_id}}">
+    <view class="img"><image src="{{item.goods_small_logo}}" mode="widthFix"></image></view>
+    <view class="goodsName">￥{{item.goods_name}}</view>
+    <view class="price">￥{{item.goods_price}}</view>
+  </view>
+</view>
